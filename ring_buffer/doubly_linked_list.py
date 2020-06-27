@@ -51,15 +51,9 @@ class DoublyLinkedList:
 
   def __len__(self):
     return self.length
-
-  def __repr__(self):
-    current = self.head
-    s = ''
-    while current is not self.tail:
-      s += str(current.value) + " "
-      current = current.next
-    s += str(self.tail.value)
-    return s
+  
+  def __str__(self):
+	  return f'The length of the list is {self.length},\nHead : {self.head.value},\nTail: {self.tail.value}'
 
   """Wraps the given value in a ListNode and inserts it 
   as the new head of the list. Don't forget to handle 
