@@ -27,12 +27,18 @@ class RingBuffer:
 				self.current = self.current.next
 					
 	def get(self):
+		# create a buffer list
 		buffer = []
-
+		# set the current node to the head
 		current_node = self.storage.head
+		# while the current node is not None
+		# or if a list exists basically
 		while current_node is not None:
+			# check to make sure the current v is aluenot none
 			if current_node.value is not None:
+				# add the value to the buffer list
 				buffer.append(current_node.value)
+			# point it tot he next node
 			current_node = current_node.next
-
+	
 		return buffer
