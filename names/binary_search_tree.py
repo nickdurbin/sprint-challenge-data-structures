@@ -28,39 +28,37 @@ class BSTNode:
       else:
         self.left.insert(value)
 
-      if value >= self.value:
-        # IF self.right is already taken by a node
-          # make that (right) node call insert 
-        # set the right child to the new node with new value
-        if self.right is None:
-          self.right = BSTNode(value)
-        else:
-          self.right.insert(value)
+    if value >= self.value:
+      # IF self.right is already taken by a node
+        # make that (right) node call insert 
+      # set the right child to the new node with new value
+      if self.right is None:
+        self.right = BSTNode(value)
+      else:
+        self.right.insert(value)
 
   # Return True if the tree contains the value
   # False if it does not
   def contains(self, target):
+    # compare the target to current value
     if self.value == target:
       return True
-    # compare the target to current value
+    # if current value less than target
+    if self.value < target:
+      # check if right subtree contains target
+      # if you cannot go right, return False
+      if self.right is None:
+        return False
+      found = self.right.contains(target)
     # if current value is greater than target
-    found = False
-    if self.value >= target:
+    else:
       # check the left subtree (self.left.contains(target))
       # if you cannot go left, return False
       if self.left is None:
         return False
       found = self.left.contains(target)
           
-      # if current value less than target
-      if self.value < target:
-        # check if right subtree contains target
-        # if you cannot go right, return False
-        if self.right is None:
-          return False
-        found = self.right.contains(target)
-
-      return found
+    return found
 
   # Return the maximum value found in the tree
   def get_max(self):

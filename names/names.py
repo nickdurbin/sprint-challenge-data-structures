@@ -19,6 +19,7 @@ duplicates = []  # Return the list of duplicates in this data structure
 #         if name_1 == name_2:
 #             duplicates.append(name_1)
 
+
 binary = BSTNode("Speed Test")
 
 for name in names_1:
